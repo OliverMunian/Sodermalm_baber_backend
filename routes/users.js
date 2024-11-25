@@ -96,6 +96,28 @@ router.get('/',(req,res)=>{
 })
 
 
+router.put('/:id', (req, res) => {
+  User.findOne({ _id: req.params.id }).then((data) => {
+    if (data) {
+      User.updateOne(
+        { _id: req.params.id },
+        { daysOff: req.body.daysOff } 
+      )
+        .then(() => {
+          res.json({ result: true, data });
+        })
+        .catch((error) => {
+          res.json({ result: false, message: "Update failed!", error });
+        });
+    } else {
+      res.json({ result: false, message: "User not found!" });
+    }
+  }).catch((error) => {
+    res.json({ result: false, message: "Error occurred!", error });
+  });
+});
+
+
 router.post('/:id/profile-photo', upload.single('photo'), (req, res) => {
   if (!req.file) {
     return res.json({ result: false, message: 'No file uploaded' });

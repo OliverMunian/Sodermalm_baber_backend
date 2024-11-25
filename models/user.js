@@ -6,6 +6,7 @@ const userSchema = mongoose.Schema({
     admin: Boolean,
     slot : [{type:mongoose.Schema.ObjectId, ref:'slots'}],
     booking: [{type: mongoose.Schema.ObjectId, ref:'bookings'}],
+    daysOff:[],
     password: String,
     token: String,
     profilePicture: String 
