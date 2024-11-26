@@ -46,7 +46,7 @@ router.get('/:id', (req,res)=>{
     })
 })
 
-//Retrouver tous les booking
+//Retrouver tous les booking lié à un barber
 router.get('/all/:id', (req,res)=>{
     Booking.find({barber: req.params.id}).then((data)=>{
         if(data){

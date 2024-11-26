@@ -59,7 +59,7 @@ app.post('/send-email', async (req, res) => {
       from: 'omalahel@gmail.com', // Adresse de l'expéditeur
       to: req.body.to,             // Adresse du destinataire
       subject: req.body.subject,           // Sujet de l'e-mail
-      text: req.body.text,                 // Corps du mail
+      html: req.body.html,                 // Corps du mail
     };
 
     // Envoi de l'email
