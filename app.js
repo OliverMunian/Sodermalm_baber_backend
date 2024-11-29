@@ -58,7 +58,8 @@ app.post('/send-email', async (req, res) => {
     let mailOptions = {
       from: 'omalahel@gmail.com', // Adresse de l'expéditeur
       to: req.body.to,             // Adresse du destinataire
-      subject: req.body.subject,           // Sujet de l'e-mail
+      subject: req.body.subject,
+      text: req.body.text,
       html: req.body.html,                 // Corps du mail
     };
 
